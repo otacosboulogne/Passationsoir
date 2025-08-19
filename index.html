@@ -94,6 +94,23 @@
 .repas-table td.center{text-align:center}
 .repas-table input[type="text"]{width:100%;box-sizing:border-box;padding:6px}
 
+
+/* Validation + radios Repas */
+.repas-field .form-error{margin-top:6px;font-size:0.95rem;color:#c62828;display:none}
+.repas-field.error .form-error{display:block}
+.repas-field.error .repas-table{outline:2px solid #c62828;outline-offset:2px}
+.repas-table input[type="radio"]{width:18px;height:18px}
+
+
+/* Repas employés - layout */
+.repas-field label{font-weight:600;margin-bottom:6px;display:block}
+.repas-table{width:100%;border-collapse:collapse;margin-top:6px;table-layout:fixed}
+.repas-table th,.repas-table td{border:1px solid var(--line);padding:8px;vertical-align:middle;background:#fff}
+.repas-table thead th{background:var(--ok-bg);text-align:left}
+.repas-table td.center{text-align:center}
+.repas-table input[type="text"]{width:100%;box-sizing:border-box;padding:8px;height:36px}
+.repas-table input[type="radio"]{width:18px;height:18px}
+
 </style>
 </head>
 <body>
@@ -123,13 +140,20 @@
           <div class="flex">
             <div class="field">
               <label for="nombrePertesConception">Nombre de pertes de conception en cuisine durant ton service</label>
-              <input id="nombrePertesConception" name="nombrePertesConception" type="number" inputmode="numeric" min="0" step="1" placeholder="0" />
+              <input id="nombrePertesConception" name="nombrePertesConception" type="number" inputmode="numeric" min="0" step="1" placeholder="0" / required>
             </div>
             <div class="field">
               
-<section id="repas-employes" class="card">
-  <h3>Repas employés</h3>
+
+
+<div id="repas-employes" class="field repas-field" style="flex:1 1 420px;min-width:360px">
+  <label>Repas employés</label>
   <table class="repas-table" aria-label="Repas employés">
+    <colgroup>
+      <col style="width:60%">
+      <col style="width:20%">
+      <col style="width:20%">
+    </colgroup>
     <thead>
       <tr>
         <th>Nom du salarié</th>
@@ -138,44 +162,41 @@
       </tr>
     </thead>
     <tbody>
-      
       <tr>
         <td><input type="text" name="employe_nom_1" placeholder="Nom et prénom" aria-label="Nom du salarié 1"></td>
-        <td class="center"><input type="checkbox" name="employe_1_tacos" aria-label="Tacos - Salarié 1"></td>
-        <td class="center"><input type="checkbox" name="employe_1_finger" aria-label="Finger Food - Salarié 1"></td>
+        <td class="center"><input type="radio" name="employe_1_repas" value="tacos" aria-label="Tacos - Salarié 1"></td>
+        <td class="center"><input type="radio" name="employe_1_repas" value="finger" aria-label="Finger Food - Salarié 1"></td>
       </tr>
-    
       <tr>
         <td><input type="text" name="employe_nom_2" placeholder="Nom et prénom" aria-label="Nom du salarié 2"></td>
-        <td class="center"><input type="checkbox" name="employe_2_tacos" aria-label="Tacos - Salarié 2"></td>
-        <td class="center"><input type="checkbox" name="employe_2_finger" aria-label="Finger Food - Salarié 2"></td>
+        <td class="center"><input type="radio" name="employe_2_repas" value="tacos" aria-label="Tacos - Salarié 2"></td>
+        <td class="center"><input type="radio" name="employe_2_repas" value="finger" aria-label="Finger Food - Salarié 2"></td>
       </tr>
-    
       <tr>
         <td><input type="text" name="employe_nom_3" placeholder="Nom et prénom" aria-label="Nom du salarié 3"></td>
-        <td class="center"><input type="checkbox" name="employe_3_tacos" aria-label="Tacos - Salarié 3"></td>
-        <td class="center"><input type="checkbox" name="employe_3_finger" aria-label="Finger Food - Salarié 3"></td>
+        <td class="center"><input type="radio" name="employe_3_repas" value="tacos" aria-label="Tacos - Salarié 3"></td>
+        <td class="center"><input type="radio" name="employe_3_repas" value="finger" aria-label="Finger Food - Salarié 3"></td>
       </tr>
-    
       <tr>
         <td><input type="text" name="employe_nom_4" placeholder="Nom et prénom" aria-label="Nom du salarié 4"></td>
-        <td class="center"><input type="checkbox" name="employe_4_tacos" aria-label="Tacos - Salarié 4"></td>
-        <td class="center"><input type="checkbox" name="employe_4_finger" aria-label="Finger Food - Salarié 4"></td>
+        <td class="center"><input type="radio" name="employe_4_repas" value="tacos" aria-label="Tacos - Salarié 4"></td>
+        <td class="center"><input type="radio" name="employe_4_repas" value="finger" aria-label="Finger Food - Salarié 4"></td>
       </tr>
-    
       <tr>
         <td><input type="text" name="employe_nom_5" placeholder="Nom et prénom" aria-label="Nom du salarié 5"></td>
-        <td class="center"><input type="checkbox" name="employe_5_tacos" aria-label="Tacos - Salarié 5"></td>
-        <td class="center"><input type="checkbox" name="employe_5_finger" aria-label="Finger Food - Salarié 5"></td>
+        <td class="center"><input type="radio" name="employe_5_repas" value="tacos" aria-label="Tacos - Salarié 5"></td>
+        <td class="center"><input type="radio" name="employe_5_repas" value="finger" aria-label="Finger Food - Salarié 5"></td>
       </tr>
-    
     </tbody>
   </table>
-</section>
+  <p class="form-error" aria-live="polite"></p>
+</div>
+
+
 <label>Pertes jetées à la poubelle</label>
               <div class="radio-row" role="radiogroup" aria-label="Pertes jetées">
                 <label class="radio-option">
-                  <input type="radio" name="Pertesjetees" value="Oui">
+                  <input type="radio" name="Pertesjetees" value="Oui" required>
                   <span class="r-bullet" aria-hidden="true"></span><span class="r-text">Oui</span>
                 </label>
                 <label class="radio-option">
@@ -188,7 +209,7 @@
               <label>les pertes saisies sur le téléphone</label>
               <div class="radio-row" role="radiogroup" aria-label="pertes saisies">
                 <label class="radio-option">
-                  <input type="radio" name="pertessaisies" value="Oui">
+                  <input type="radio" name="pertessaisies" value="Oui" required>
                   <span class="r-bullet" aria-hidden="true"></span><span class="r-text">Oui</span>
                 </label>
                 <label class="radio-option">
@@ -352,6 +373,36 @@
       if (section.title === "E-Pack Hygiène") sectionsRoot.appendChild(buildObjectifBlock());
     });
   </script>
+
+  
+<script>
+(function(){
+  var form = document.getElementById('passationForm');
+  var repas = document.getElementById('repas-employes');
+  function validateRepas(){
+    if (!repas) return true;
+    var anyChecked = repas.querySelector('input[type="radio"]:checked');
+    if (!anyChecked){
+      repas.classList.add('error');
+      var err = repas.querySelector('.form-error');
+      if (err){ err.textContent = 'Êtes-vous sûr qu’aucun salarié n’a pris de repas ? Si oui, mettez à la place du nom "PERSONNE" PUIS COCHER TACOS'; }
+      return false;
+    }
+    repas.classList.remove('error');
+    return true;
+  }
+  if (form){
+    // Submit CAPTURE phase to run before other listeners
+    form.addEventListener('submit', function(e){
+      if (!validateRepas()){
+        e.preventDefault();
+        e.stopImmediatePropagation();
+        repas.scrollIntoView({behavior:'smooth', block:'center'});
+      }
+    }, true);
+  }
+})();
+</script>
 
   <!-- libs PDF (séparées pour iOS, évite l’erreur "color") -->
   <script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js"></script>
