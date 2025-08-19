@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>CONTRÔLE PASSATION MIDI</title>
+  <title>CONTRÔLE PASSATION SOIR</title>
   <style>
     :root{
       --ink:#111; --muted:#666; --line:#1a1a1a; --bg:#fff;
@@ -90,7 +90,7 @@
 </head>
 <body>
   <div class="page">
-    <h1>CONTRÔLE PASSATION MIDI</h1>
+    <h1>CONTRÔLE PASSATION SOIR</h1>
 
     <form id="passationForm">
       <div class="grid" id="sections"></div>
@@ -122,27 +122,27 @@
               <input id="nombreRepasEmployes" name="nombreRepasEmployes" type="number" inputmode="numeric" min="0" step="1" placeholder="0" />
             </div>
             <div class="field" style="flex:1 1 280px">
-              <label>La commande sur Inpulse a été validée</label>
-              <div class="radio-row" role="radiogroup" aria-label="Commande validée">
+              <label>Pertes jetées à la poubelle</label>
+              <div class="radio-row" role="radiogroup" aria-label="Pertes jetées">
                 <label class="radio-option">
-                  <input type="radio" name="commandeValidee" value="Oui">
+                  <input type="radio" name="Pertesjetees" value="Oui">
                   <span class="r-bullet" aria-hidden="true"></span><span class="r-text">Oui</span>
                 </label>
                 <label class="radio-option">
-                  <input type="radio" name="commandeValidee" value="Non">
+                  <input type="radio" name="Pertesjetees" value="Non">
                   <span class="r-bullet" aria-hidden="true"></span><span class="r-text">Non</span>
                 </label>
               </div>
             </div>
             <div class="field" style="flex:1 1 280px">
-              <label>Le reporting a été rempli</label>
-              <div class="radio-row" role="radiogroup" aria-label="Reporting rempli">
+              <label>les pertes saisies sur le téléphone</label>
+              <div class="radio-row" role="radiogroup" aria-label="pertes saisies">
                 <label class="radio-option">
-                  <input type="radio" name="reportingRempli" value="Oui">
+                  <input type="radio" name="pertessaisies" value="Oui">
                   <span class="r-bullet" aria-hidden="true"></span><span class="r-text">Oui</span>
                 </label>
                 <label class="radio-option">
-                  <input type="radio" name="reportingRempli" value="Non">
+                  <input type="radio" name="pertessaisies" value="Non">
                   <span class="r-bullet" aria-hidden="true"></span><span class="r-text">Non</span>
                 </label>
               </div>
@@ -180,29 +180,28 @@
   <!-- Sections dynamiques -->
   <script>
     const SECTIONS = [
-      { title: "Terrasse", tasks: ["Sol, tables, chaises","Poubelle","Cendriers vides et disponibles","Sol et surfaces propres"]},
-      { title: "Toilettes Clients", tasks: ["Papier / savon","Toilettes (cuvette, lunette, rebords)","Odeur","Miroir","Poubelle propre et non pleine","Sèche-mains propre et fonctionnel"]},
-      { title: "Cuisine", tasks: ["Viandes et suppléments en suffisance","Sauces en suffisance","Frigo rempli","Essuie-mains, savon en suffisance","Poubelles changées","Traçabilité prise","Pertes comptabilisées","Galettes descendues","Rouleaux de papier dans imprimantes","Huile à niveau dans les friteuses","Eau à niveau dans bain-marie","Friteuses filtrées","Filtre friteuse changé","Emballages en suffisance"]},
-      { title: "Chambres froides", tasks: ["Décongélations préparées","Sauces en double dans meuble froid","CF propres","Caillebotis propres","Étagères propres","Produits remontés / rotation faite","Bacs rouges remplis de frites"]},
-      { title: "Salle", tasks: ["Sol propre","Tables, pieds de tables, chaises propres","Poubelles propres et non pleines","Musique en marche","Bornes fonctionnelles","Enseigne allumée (si nuit)"]},
-      { title: "Comptoir", tasks: ["Frigos à boissons remplis","Comptoir desserts rempli","Toppings, nappages, lait en suffisance","Télécommandes, agrafeuse, tampon, téléphone disponibles","DLC contrôlées, signalement si besoin","Meuble O’sucré propre et rangé","Comptoir propre et rangé","Présence pailles/serviettes/gobelets/emballages","Plateaux propres et dressés","Machine à glace propre","Vaisselle propre","Savon, essuie-mains en suffisance","Produits d’entretien en suffisance","Rouleaux pleins dans imprimantes et TPE","Caisse comptée + celle de l'équipier + fond de caisse fait si Glory en panne"]},
-      { title: "Réserves", tasks: ["Réserve bien rangée","Sol et étagères propres","FIFO / DLC","Disponibilité produits (dès réception après rupture)"]},
-      { title: "Étage", tasks: ["Sol propre","Toilettes, lavabos, murs propres","Savon, essuie-mains en suffisance","Poubelles non pleines","Miroirs propres"]},
-      { title: "Plonge", tasks: ["Plonge terminée","Zone et matériel propres","Produits diluer et en suffisance"]},
-      { title: "E-Pack Hygiène", tasks: ["Nettoyage des postes rempli","Check-list manager remplie"]},
-      { title: "Tenue du personnel", tasks: ["Complète, propre, repassée","Cheveux attachés","Pas de bijoux sauf alliance","Charlotte, tablier, sur-chaussures en cuisine"]}
+      { title: "Terrasse", tasks: ["tables et chaises rangées","Cendriers rentrés","Palettes sorties si lundi/mardi/mercredi/jeudi soir","Poubelles sorties si lundi/jeudi soir"]},
+      { title: "Toilettes Clients", tasks: ["Papier + savon en suffisance","Sèche mains fonctionnel"]},
+      { title: "Cuisine", tasks: ["Tout le matériel sale en plonge","Papiers, déchets jetés à la poubelle","Essuie-mains, savon en suffisance","Sauces propres, couvertes et placées en CF+","Tracabilité prise","Production notée","Pertes comptabilisées","Galettes descendues","Friteuses filtrées, éteintes et couvertes","Tablettes (Otter, badgeuse) en charge","Filmer + étiquette DLC","DLC galettes"]},
+      { title: "Chambres froides", tasks: ["Décongélations préparées","Sauces en double si ouvertes dans le meuble froid","Sol propre CF+","Caillebottis propres CF-","Etagères propres","Produits remontés / rotations faites","Bac rouges remplis de frites","Produits filmés","DLC du jour vérifiées"]},
+      { title: "Salle", tasks: ["Flammes + pieds rentrés","Enseigne éteinte","Musique éteinte","Lumières zone comptoir éteintes","Plateaux propres et dressés","Frigos Coca éteints"]},
+      { title: "Comptoir", tasks: ["Frigos à boissons remplis","Comptoir à desserts rempli","Toppings couverts","DLC du lendemain contrôlées et signalées si besoin","Frigo O'sucré éteint","Lait, chantilly + décongélations placés en vitrine","Présence pailles/serviettes/gobelets/emballages…","Tablette en charge + TPE Responsables","Machine à glace en veille","Dispo des télécommandes, agrafeuse, tampon, téléphone","Vaisselle propre","Savon, essuie-main en suffisance","Comptoir rangé, pas de papiers ou déchets","Produits d'entretien en suffisance","Vaisselle réutilisable récupérée"]},
+      { title: "Réserves", tasks: ["Rangement","Sol et étagères propres","FIFO / DLC"]},
+      { title: "Étage", tasks: ["Sol propre","Toilettes, lavabo, murs propres","Savon, essuie-mains en suffisance","Poubelles non-pleines","Fenêtre et porte du bureau et de l'étage fermées"]},
+      { title: "Plonge", tasks: ["Tout le matériel sale est placé en plonge","Produits lessiviels en suffisance (bidons dilués)"]},
+      { title: "E-Pack Hygiène", tasks: ["Nettoyage des postes rempli","Check-list manager remplie","Température + polarité des huiles renseignées"]},
+      { title: "Extinction des appareils", tasks: ["Chauffage ou climatisation","Friteuses","Hotte","Meuble chaud/froid/maintien chaud/toaster","Lumières bureau","Machine à glaces en veille","Lumières et frigo vitrine","Lumières cuisine + salle"]}
     ];
 
     const OK_ONLY = new Map([
-      ["Cuisine", new Set(["Viandes et suppléments en suffisance","Sauces en suffisance","Essuie-mains, savon en suffisance","Galettes descendues","Rouleaux de papier dans imprimantes","Huile à niveau dans les friteuses","Eau à niveau dans bain-marie","Emballages en suffisance"])],
-      ["Salle", new Set(["Bornes fonctionnelles"])],
-      ["Réserves", new Set(["Disponibilité produits (dès réception après rupture)"])],
-      ["Plonge", new Set(["Produits diluer et en suffisance"])],
-      ["Toilettes Clients", new Set(["Papier / savon"])],
-      ["Chambres froides", new Set(["Décongélations préparées","Produits remontés / rotation faite"])],
-      ["Comptoir", new Set(["Frigos à boissons remplis","Comptoir desserts rempli","Toppings, nappages, lait en suffisance","DLC contrôlées, signalement si besoin","Plateaux propres et dressés","Rouleaux pleins dans imprimantes et TPE","Caisse comptée + celle de l'équipier + fond de caisse fait si Glory en panne"])],
-      ["E-Pack Hygiène", new Set(["Nettoyage des postes rempli","Check-list manager remplie"])],
-      ["Tenue du personnel", new Set(["Charlotte, tablier, sur-chaussures en cuisine"])]
+      ["Cuisine", new Set(["Tout le matériel sale en plonge","Papiers, déchets jetés à la poubelle","Sauces propres, couvertes et placées en CF+","Production notée","Pertes comptabilisées","Friteuses filtrées, éteintes et couvertes","Tablettes (Otter, badgeuse) en charge","DLC galettes"])],
+      ["Salle", new Set(["Flammes + pieds rentrés","Enseigne éteinte","Musique éteinte","Lumières zone comptoir éteintes","Frigos Coca éteints"])],
+      ["Terrasse", new Set(["Palettes sorties si lundi/mardi/mercredi/jeudi soir","Poubelles sorties si lundi/jeudi soir"])],
+      ["Plonge", new Set(["Tout le matériel sale est placé en plonge","Produits lessiviels en suffisance (bidons dilués)"])],
+      ["Chambres froides", new Set(["Décongélations préparées","Produits filmés","DLC du jour vérifiées"])],
+      ["Comptoir", new Set(["Frigos à boissons remplis","Toppings couverts","Frigo O'sucré éteint","Lait, chantilly + décongélations placés en vitrine","Tablette en charge + TPE Responsables","Machine à glace en veille","Dispo des télécommandes, agrafeuse, tampon, téléphone","Produits d'entretien en suffisance"])],
+      ["E-Pack Hygiène", new Set(["Nettoyage des postes rempli","Check-list manager remplie","Température + polarité des huiles renseignées"])],
+      ["Extinction des appareils", new Set(["Chauffage ou climatisation","Friteuses","Hotte","Meuble chaud/froid/maintien chaud/toaster","Lumières bureau","Machine à glaces en veille","Lumières et frigo vitrine","Lumières cuisine + salle"])]
     ]);
 
     function isOkOnly(sectionTitle, taskText){
@@ -280,7 +279,8 @@
       [
         { label: "Objectif avis Google donné au salarié en caisse", name: "objectifAvisGoogle" },
         { label: "Briefing et débriefing effectués", name: "briefingDebriefing" },
-        { label: "Satisfait du service", name: "satisfaitService" }
+        { label: "Satisfait du service et temps d'attente", name: "satisfaitService" },
+        { label: "effectif suffissant pour le service", name: "satisfaiteffectif" },
       ].forEach(r=>{
         const tr = document.createElement('tr');
         tr.innerHTML = `
