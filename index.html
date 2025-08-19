@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="fr">
 <head>
   <meta charset="UTF-8" />
@@ -7,9 +7,9 @@
   <style>
     :root{
       --ink:#111; --muted:#666; --line:#1a1a1a; --bg:#fff;
-      --ok-bg:#e8f5e9; --ok-accent:#2e7d32;
+      --ok-bg:#e3f2fd; --ok-accent:#1565c0;
       --todo-bg:#ffebee; --todo-accent:#c62828;
-      --passation-bg:#e8f5e9;
+      --passation-bg:#e3f2fd;
     }
     html,body{height:100%}
     body{
@@ -86,7 +86,15 @@
       .submitbar{display:none}
       a[href]:after{content:""}
     }
-  </style>
+  
+/* Repas employés table */
+.repas-table{width:100%;border-collapse:collapse;margin-top:8px}
+.repas-table th,.repas-table td{border:1px solid var(--line);padding:8px}
+.repas-table thead th{background:var(--ok-bg);text-align:left}
+.repas-table td.center{text-align:center}
+.repas-table input[type="text"]{width:100%;box-sizing:border-box;padding:6px}
+
+</style>
 </head>
 <body>
   <div class="page">
@@ -118,11 +126,53 @@
               <input id="nombrePertesConception" name="nombrePertesConception" type="number" inputmode="numeric" min="0" step="1" placeholder="0" />
             </div>
             <div class="field">
-              <label for="nombreRepasEmployes">Nombre de repas employés donnés dans le service</label>
-              <input id="nombreRepasEmployes" name="nombreRepasEmployes" type="number" inputmode="numeric" min="0" step="1" placeholder="0" />
-            </div>
-            <div class="field" style="flex:1 1 280px">
-              <label>Pertes jetées à la poubelle</label>
+              
+<section id="repas-employes" class="card">
+  <h3>Repas employés</h3>
+  <table class="repas-table" aria-label="Repas employés">
+    <thead>
+      <tr>
+        <th>Nom du salarié</th>
+        <th>Tacos</th>
+        <th>Finger Food</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+      <tr>
+        <td><input type="text" name="employe_nom_1" placeholder="Nom et prénom" aria-label="Nom du salarié 1"></td>
+        <td class="center"><input type="checkbox" name="employe_1_tacos" aria-label="Tacos - Salarié 1"></td>
+        <td class="center"><input type="checkbox" name="employe_1_finger" aria-label="Finger Food - Salarié 1"></td>
+      </tr>
+    
+      <tr>
+        <td><input type="text" name="employe_nom_2" placeholder="Nom et prénom" aria-label="Nom du salarié 2"></td>
+        <td class="center"><input type="checkbox" name="employe_2_tacos" aria-label="Tacos - Salarié 2"></td>
+        <td class="center"><input type="checkbox" name="employe_2_finger" aria-label="Finger Food - Salarié 2"></td>
+      </tr>
+    
+      <tr>
+        <td><input type="text" name="employe_nom_3" placeholder="Nom et prénom" aria-label="Nom du salarié 3"></td>
+        <td class="center"><input type="checkbox" name="employe_3_tacos" aria-label="Tacos - Salarié 3"></td>
+        <td class="center"><input type="checkbox" name="employe_3_finger" aria-label="Finger Food - Salarié 3"></td>
+      </tr>
+    
+      <tr>
+        <td><input type="text" name="employe_nom_4" placeholder="Nom et prénom" aria-label="Nom du salarié 4"></td>
+        <td class="center"><input type="checkbox" name="employe_4_tacos" aria-label="Tacos - Salarié 4"></td>
+        <td class="center"><input type="checkbox" name="employe_4_finger" aria-label="Finger Food - Salarié 4"></td>
+      </tr>
+    
+      <tr>
+        <td><input type="text" name="employe_nom_5" placeholder="Nom et prénom" aria-label="Nom du salarié 5"></td>
+        <td class="center"><input type="checkbox" name="employe_5_tacos" aria-label="Tacos - Salarié 5"></td>
+        <td class="center"><input type="checkbox" name="employe_5_finger" aria-label="Finger Food - Salarié 5"></td>
+      </tr>
+    
+    </tbody>
+  </table>
+</section>
+<label>Pertes jetées à la poubelle</label>
               <div class="radio-row" role="radiogroup" aria-label="Pertes jetées">
                 <label class="radio-option">
                   <input type="radio" name="Pertesjetees" value="Oui">
